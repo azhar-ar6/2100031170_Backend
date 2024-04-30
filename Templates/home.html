@@ -1,0 +1,56 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Locations</title>
+<link type="text/css" rel="stylesheet" href="{% static 'css/adminstyle.css' %}"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body bgcolor="lightgrey">
+
+
+<nav class="navbar">
+    <div class="logo"></div>
+    <ul class="nav-links">
+        <div class="menu">
+            <a href="{% url 'CountryHome' %}">Home</a>&nbsp;&nbsp;&nbsp;
+            <li class="services">
+                <a href="#">Country</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'CountryHome' %}">Add Country</a></li>&nbsp;&nbsp;&nbsp;
+                    <li><a href="{% url 'displayCountry' %}">Display Country</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                </ul>
+            </li>
+            <li class="services">
+                <a href="#">Locations</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'addLocation' %}">Add Location</a></li>&nbsp;&nbsp;&nbsp;
+                    <li><a href="{% url 'display_locations' %}">Display Location</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                </ul>
+            </li>
+            <li class="services">
+                <a href="#">Operations</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'addressJoin' %}">Join</a></li>&nbsp;&nbsp;&nbsp;
+                    <li><a href="{% url 'addressNotJoin' %}">NOT Join</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                </ul>
+            </li>
+        </div>
+    </ul>
+</nav>
+&nbsp;&nbsp;&nbsp;
+
+<br><br>
+
+{% block 'body' %}
+
+<p>I am in Home Page</p>
+
+{% endblock %}
+
+</body>
+</html>

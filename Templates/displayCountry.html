@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+
+{% block 'body' %}
+
+<h3 align="center"><u>Display all Countries</u></h3><br>
+<table align="center" border="2" width="100%" height="50%" class="table table-bordered table-striped">
+    <thead>
+    <tr bgcolor="lightblue" align="center">
+        <td>country_id</td>
+        <td>country_name</td>
+        <td>region_id</td>
+    </tr>
+    </thead>
+    <tbody id="myTable">
+    {% for country in countries  %}
+
+    <tr align="center">
+        <td>{{country.country_id}}</td>
+        <td>{{country.country_name}}</td>
+        <td>{{country.region_id}}</td>
+    </tr>
+    {% endfor %}
+    </tbody >
+</table>
+
+<script>
+    $(document).ready(function(){
+       $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#myTable tr").filter(function() {
+             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+       });
+    });
+</script>
+{% endblock %}

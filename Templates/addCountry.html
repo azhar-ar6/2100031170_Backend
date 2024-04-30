@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+
+{% block 'body' %}
+
+<div class="container">
+
+        <form action="{% url 'addCountry' %}" method="post">
+            <!-- CSRF token -->
+            {% csrf_token %}
+
+            <!-- Country ID -->
+            <label for="country_id">Country ID:</label>
+            <input type="text" id="country_id" name="country_id" required><br>
+
+            <!-- Country Name -->
+            <label for="country_name">Country Name:</label>
+            <input type="text" id="country_name" name="country_name" required><br>
+
+            <!-- Region ID -->
+            <label for="region_id">Region ID:</label>
+            <input type="text" id="region_id" name="region_id" required><br>
+
+            <!-- Submit button -->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}

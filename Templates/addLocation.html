@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+
+{% block 'body' %}
+
+ <div class="container">
+        <form action="{% url 'add_location' %}" method="post">
+            <!-- CSRF token -->
+            {% csrf_token %}
+
+            <!-- Location ID -->
+            <label for="location_id">Location ID:</label>
+            <input type="text" id="location_id" name="location_id"><br>
+
+            <!-- Street Address -->
+            <label for="street_address">Street Address:</label>
+            <input type="text" id="street_address" name="street_address"><br>
+
+            <label for="postal_code">Postal Code:</label>
+            <input type="text" id="postal_code" name="postal_code"><br>
+
+            <!-- City -->
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city"><br>
+
+            <!-- State/Province -->
+            <label for="state_province">State/Province:</label>
+            <input type="text" id="state_province" name="state_province"><br>
+
+            <!-- Country ID -->
+            <label for="country_id">Country ID:</label>
+            <select id="country_id" name="country_id">
+                <!-- Add options dynamically here -->
+                {% for country_id in country_ids %}
+                <option value="{{ country_id }}">{{ country_id }}</option>
+                {% endfor %}
+            </select><br>
+
+            <!-- Submit button -->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+{% endblock %}
